@@ -1,18 +1,17 @@
 import {
   createMongoAbility,
-  ForcedSubject,
   CreateAbility,
   MongoAbility,
   AbilityBuilder,
 } from '@casl/ability'
 import { User } from './models/user'
 import { permissions } from './permissions'
-import { userSubject, UserSubject } from './subjects/user'
-import { projectSubject, ProjectSubject } from './subjects/project'
+import { userSubject } from './subjects/user'
 import { z } from 'zod'
 import { organizationSubject } from './subjects/organization'
 import { inviteSubject } from './subjects/invite'
 import { billingSubject } from './subjects/billing'
+import { projectSubject } from './subjects/project'
 
 export * from './models/user'
 export * from './models/organization'
