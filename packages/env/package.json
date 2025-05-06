@@ -1,0 +1,22 @@
+{
+  "name": "@saas/env",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.ts",
+  "types": "index.ts",
+  "module": true,
+  "devDependencies": {
+    "@saas/eslint-config": "*",
+    "@saas/prettier": "*"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@saas/eslint-config/library.cjs"
+    ]
+  },
+  "prettier": "@saas/prettier",
+  "dependencies": {
+    "@t3-oss/env-nextjs": "^0.13.0",
+    "zod": "^3.24.3"
+  }
+}
