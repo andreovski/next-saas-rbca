@@ -26,7 +26,7 @@ export async function createOrganization(app: FastifyInstance) {
   app
     .withTypeProvider<ZodTypeProvider>()
     .register(auth)
-    .post('/organization', { schema }, async (req, reply) => {
+    .post('/organizations', { schema }, async (req, reply) => {
       const userId = await req.getCurrentUserId()
       const { name, domain, shouldAttachUsersByDomain } = req.body
 
