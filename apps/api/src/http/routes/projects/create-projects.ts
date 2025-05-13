@@ -32,8 +32,8 @@ export async function createProject(app: FastifyInstance) {
     .register(auth)
     .post('/organizations/:slug/projects', { schema }, async (req, reply) => {
       const userId = await req.getCurrentUserId()
-      const { membership, organization } = await req.getUserMembership(userId)
       const { slug } = req.params
+      const { membership, organization } = await req.getUserMembership(slug)
 
       const { name, description } = req.body
 

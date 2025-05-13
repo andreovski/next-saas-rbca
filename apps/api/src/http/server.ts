@@ -32,6 +32,14 @@ import { updateProject } from './routes/projects/update-project'
 import { getMembers } from './routes/members/get-members'
 import { updateMember } from './routes/members/update-members'
 import { removeMember } from './routes/members/remove-member'
+import { createInvite } from './routes/invetes/create-invite'
+import { getInvite } from './routes/invetes/get-invite'
+import { getInvites } from './routes/invetes/get-invites'
+import { acceptInvite } from './routes/invetes/accept-invite'
+import { rejectInvite } from './routes/invetes/reject-invite'
+import { revokeInvite } from './routes/invetes/revoke-invite'
+import { getPendingInvites } from './routes/invetes/get-pending-invites'
+import { getOrganizationBilling } from './routes/billing/get-organization-billing'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -66,9 +74,9 @@ app.register(fastifyJwt, {
 })
 
 app.register(fastifyCors)
+app.register(getProfile)
 app.register(createAccount)
 app.register(authenticateWithPassword)
-app.register(getProfile)
 app.register(requestPasswordRecover)
 app.register(resetPassword)
 app.register(authenticateWithGithub)
@@ -91,6 +99,16 @@ app.register(getMembers)
 app.register(updateMember)
 app.register(removeMember)
 
+app.register(getInvite)
+app.register(getInvites)
+app.register(createInvite)
+app.register(acceptInvite)
+app.register(rejectInvite)
+app.register(revokeInvite)
+app.register(getPendingInvites)
+
+app.register(getOrganizationBilling)
+
 app.listen({ port: env.SERVER_PORT }).then(() => {
-  console.log('Server is running on http://localhost:3333')
+  console.log(`Server is running on http://localhost:${env.SERVER_PORT}`)
 })
