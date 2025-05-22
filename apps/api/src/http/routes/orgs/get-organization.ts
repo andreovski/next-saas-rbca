@@ -33,7 +33,7 @@ export async function getOrganization(app: FastifyInstance) {
   app
     .withTypeProvider<ZodTypeProvider>()
     .register(auth)
-    .get('/organizations/:slug', { schema }, async (req, reply) => {
+    .get('/organization/:slug', { schema }, async (req, reply) => {
       const { slug } = req.params
       const { organization } = await req.getUserMembership(slug)
 

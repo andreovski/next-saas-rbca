@@ -62,22 +62,22 @@ export async function authenticateWithGithub(app: FastifyInstance) {
           Authorization: `Bearer ${githubAccessToken}`,
         },
       })
-
       const githubUserData = await githubUserResponse.json()
 
       const {
         id: githubId,
         name,
-        avatarUrl,
+        avatar_url: avatarUrl,
         email,
       } = z
         .object({
           id: z.number().int().transform(String),
-          avatarUrl: z.string().url(),
+          avatar_url: z.string().url(),
           name: z.string().nullable(),
           email: z.string().nullable(),
         })
         .parse(githubUserData)
+
 
       if (email === null) {
         throw new BadRequestError(

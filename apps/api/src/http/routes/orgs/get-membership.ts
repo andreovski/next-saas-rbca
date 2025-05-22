@@ -16,6 +16,7 @@ const schema = {
       membership: z.object({
         id: z.string(),
         role: rolesSchema,
+        userId: z.string(),
         organizationId: z.string(),
       }),
     }),
@@ -34,6 +35,7 @@ export async function getMembership(app: FastifyInstance) {
         membership: {
           id: membership.id,
           role: rolesSchema.parse(membership.role),
+          userId: membership.userId,
           organizationId: membership.organizationId,
         },
       }

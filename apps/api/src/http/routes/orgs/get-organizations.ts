@@ -11,9 +11,6 @@ const schema = {
   tags: ['organizations'],
   summary: 'Get organization where user is a member',
   security: [{ bearerAuth: [] }],
-  params: z.object({
-    slug: z.string(),
-  }),
   response: {
     200: z.object({
       organizations: z.array(
