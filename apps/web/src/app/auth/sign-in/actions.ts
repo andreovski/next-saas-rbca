@@ -38,7 +38,6 @@ export async function signInWithEmailAndPassword(data: FormData) {
       maxAge: 60 * 60 * 24 * 7, // 7 days
     })
 
-    console.log('🚀 ~ signInWithEmailAndPassword ~ token:', token)
   } catch (error) {
     if (error instanceof HTTPError) {
       const { message } = await error.response.json()
